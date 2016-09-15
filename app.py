@@ -36,23 +36,23 @@ def makeWebhookResult(req):
         return {}
         
         
-    print("step 0");
+    print("step 0")
     
     session = req.get("sessionId")
     result = req.get("result")
     parameters = result.get("parameters")
     
     
-    print("step 1");
-    
+    print("step 1")
+    print(session)
     test_blah = parameters.get("test_blah")
     
-    print("step 2");
+    print("step 2")
 
     # cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
     # speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-    speech = "You asked for " + test_blah + " my answer is blah blaah for " + session + " SESSION."
+    speech = "You asked for " + test_blah + " my answer is blah for " + str(session) + " SESSION."
     
     print("Response:")
     print(speech)
