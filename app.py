@@ -26,9 +26,11 @@ def webhook():
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
+    
+    validApiActionList=["generic.queries","dummy"]
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "generic.queries":
+    if req.get("result").get("action") not in validApiActionList:
         return {}
         
         
