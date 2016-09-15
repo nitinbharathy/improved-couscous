@@ -28,7 +28,7 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") not in set(["generic.queries", "bullshit"]):
+    if req.get("result").get("action") != "generic.queries":
         return {}
         
         
