@@ -30,9 +30,18 @@ def webhook():
 def makeWebhookResult(req):
     if req.get("result").get("action") != "generic.queries":
         return {}
+        
+        
+    print("step 0");
+    
     result = req.get("result")
     parameters = result.get("parameters")
+    
+    print("step 1");
+    
     test_blah = parameters.get("test_blah")
+    
+    print("step 2");
 
     //cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
