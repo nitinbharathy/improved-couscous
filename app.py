@@ -41,6 +41,10 @@ def makeWebhookResult(req):
     elif req.get("result").get("action")=="process.order":
         print("here b2")
         return functionOrder(req)
+    else:
+        print("here z")
+        print req.get("result").get("action")
+        
     
 def functionOrder(req):
     sessionId = req.get("sessionId")
