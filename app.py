@@ -30,22 +30,25 @@ def webhook():
 
 def makeWebhookResult(req):
     
-    validApiActionList=["generic.queries","dummy"]
+    validApiActionList=["generic.queries","process.order"]
     
-    if req.get("result").get("action") not in validApiActionList:
-        return {}
+    #if req.get("result").get("action") not in validApiActionList:
+    #    return {}
     
+    print("starting...")
     print req.get("result").get("action")
     
     if req.get("result").get("action")=="generic.queries":
         print("here 1")
         return functionGenericQueries(req)
     elif req.get("result").get("action")=="process.order":
-        print("here b2")
+        print("here B-2")
         return functionOrder(req)
     else:
-        print("here z")
+        print("Invalid API.AI Action: ")
         print req.get("result").get("action")
+        print("Returning")
+        return {}
         
     
 def functionOrder(req):
