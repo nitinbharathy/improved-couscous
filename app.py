@@ -60,7 +60,7 @@ def functionOrder(req):
     burger=parameters.get("burger").get("burger")
     cust=parameters.get("customisation").get("customisation")
     
-    speech = "You asked for " + amt + " quantity of " + burger + " with " + cust + " customisations."
+    speech = "You asked for " + str(amt) + " quantity of " + burger + " with " + cust + " customisations."
     
     print("Response:")
     print(speech)
