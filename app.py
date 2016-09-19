@@ -36,8 +36,10 @@ def makeWebhookResult(req):
         return {}
     
     if req.get("result").get("action")=="generic.queries":
+        print("here 1")
         return functionGenericQueries(req)
     elif:
+        print("here b2")
         return functionOrder(req)
     
 def functionOrder(req):
@@ -62,6 +64,7 @@ def functionOrder(req):
     
     
 def functionGenericQueries(req):
+    print("here 2")
     sessionId = req.get("sessionId")
     result = req.get("result")
     parameters = result.get("parameters")
