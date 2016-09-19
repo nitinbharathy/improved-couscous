@@ -34,26 +34,42 @@ def makeWebhookResult(req):
     
     if req.get("result").get("action") not in validApiActionList:
         return {}
-        
-        
-    print("step 0")
     
+    if req.get("result").get("action")=="generic.queries":
+        return functionGenericQueries(req)
+    elif:
+        return functionOrder(req)
+    
+def functionOrder(req):
     sessionId = req.get("sessionId")
     result = req.get("result")
     parameters = result.get("parameters")
-    
-    
-    print("step 1")
-    print(sessionId)
-    generic_category_query = parameters.get("generic_category_query")
-    
-    print("step 2")
 
-    # cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    process_order=parameters.get("process_order")
+    
+    speech = "You asked for " + process_order + "."
+    
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        # "contextOut": [],
+        "source": "apiai-generic-queries"
+    }
+    
+    
+def functionGenericQueries(req):
+    sessionId = req.get("sessionId")
+    result = req.get("result")
+    parameters = result.get("parameters")
+
+    generic_category_query = parameters.get("generic_category_query")
     
     menutable={'vegetarian':'We just launched the veggie crunch','chicken':'The mc chicken and mc spicy are good choices','burger':'You should try the big mac or the mc spicy','beef':'Peoples favourites are the cheeseburger or the big mac','recommendations':'Please do not eat here - cook your own food!'}
 
-    # speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
     speech = "You asked for " + generic_category_query + ". "+ menutable[generic_category_query]+" for session "+ sessionId + "."
     
     print("Response:")
@@ -64,7 +80,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
+        "source": "apiai-generic-queries"
     }
 
 
