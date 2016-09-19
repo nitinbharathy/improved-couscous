@@ -58,6 +58,8 @@ def functionOrder(req):
     
     amt=parameters.get("amount")
     print(amt)
+    amt2=amt.get("amount")
+    print(amt2)
     #burger=parameters.get("burger")
     #print(burger)
     #cust=parameters.get("customisation")
