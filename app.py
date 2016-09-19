@@ -35,6 +35,8 @@ def makeWebhookResult(req):
     if req.get("result").get("action") not in validApiActionList:
         return {}
     
+    print req.get("result").get("action")
+    
     if req.get("result").get("action")=="generic.queries":
         print("here 1")
         return functionGenericQueries(req)
@@ -51,14 +53,14 @@ def functionOrder(req):
     result = req.get("result")
     parameters = result.get("parameters")
     
-    amt=parameters.get("amount")
-    print(amt)
-    burger=parameters.get("burger")
-    print(burger)
-    cust=parameters.get("customisation")
-    print(cust)
-    
-    speech = "You asked for " + amt + " quantity of " + burger + " with " + cust + " customisations."
+    #amt=parameters.get("amount")
+    #print(amt)
+    #burger=parameters.get("burger")
+    #print(burger)
+    #cust=parameters.get("customisation")
+    #print(cust)
+    speech = "thanks"
+    #speech = "You asked for " + amt + " quantity of " + burger + " with " + cust + " customisations."
     
     print("Response:")
     print(speech)
