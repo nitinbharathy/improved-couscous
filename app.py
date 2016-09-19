@@ -48,8 +48,11 @@ def functionOrder(req):
     parameters = result.get("parameters")
     
     amt=parameters.get("amount")
+    print(amt)
     burger=parameters.get("burger")
+    print(burger)
     cust=parameters.get("customisation")
+    print(cust)
     
     speech = "You asked for " + amt + " quantity of " + burger + " with " + cust + " customisations."
     
