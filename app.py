@@ -38,7 +38,7 @@ def makeWebhookResult(req):
     if req.get("result").get("action")=="generic.queries":
         print("here 1")
         return functionGenericQueries(req)
-    elif:
+    elif req.get("result").get("action")=="process.order":
         print("here b2")
         return functionOrder(req)
     
@@ -46,10 +46,12 @@ def functionOrder(req):
     sessionId = req.get("sessionId")
     result = req.get("result")
     parameters = result.get("parameters")
-
-    process_order=parameters.get("process_order")
     
-    speech = "You asked for " + process_order + "."
+    amt=parameters.get("amount")
+    burger=parameters.get("burger")
+    cust=parameters.get("customisation")
+    
+    speech = "You asked for " + amt + " quantity of " + burger + " with " + cust + " customisations."
     
     print("Response:")
     print(speech)
