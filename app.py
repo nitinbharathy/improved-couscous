@@ -56,8 +56,8 @@ def functionOrder(req):
     result = req.get("result")
     parameters = result.get("parameters")
     
-    #amt=parameters.get("amount")
-    #print(amt)
+    amt=parameters.get("amount")
+    print(amt)
     #burger=parameters.get("burger")
     #print(burger)
     #cust=parameters.get("customisation")
