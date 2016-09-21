@@ -76,7 +76,9 @@ def functionOrder(req):
     burger=parameters.get("burger").get("burger")
     cust=parameters.get("customisation").get("customisation")
     
-    speech = "You asked for " + str(amt) + " quantity of " + burger + " with " + cust + " customisations. Would you like to make this a meal?"
+    session['counter'] = session['counter'] + 1
+    
+    speech = "You asked for " + str(amt) + " quantity of " + burger + " with " + cust + " customisations. Would you like to make this a meal? " + str(session['counter'])
     
     print("Response:")
     print(speech)
