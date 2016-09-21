@@ -13,7 +13,7 @@ from flask import Flask, session, render_template, url_for, request, redirect
 # Flask app should start in global layout
 app = Flask(__name__)
 
-app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KT'
+app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KTheythere'
 
 def sumSessionCounter():
   try:
