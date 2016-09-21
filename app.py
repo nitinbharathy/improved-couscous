@@ -7,13 +7,23 @@ import os
 from flask import Flask
 from flask import request
 from flask import make_response
+from flask import Flask, session, render_template, url_for, request, redirect
+
 
 # Flask app should start in global layout
 app = Flask(__name__)
 
 
+def sumSessionCounter():
+  try:
+    session['counter'] += 1
+  except KeyError:
+    session['counter'] = 1
+
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    sumSessionCounter()
     req = request.get_json(silent=True, force=True)
 
     print("Request:")
