@@ -49,11 +49,16 @@ def makeWebhookResult(req):
     print("starting...")
     print req.get("result").get("action")
     
+    print("the counter is")
+    print session['counter']
+    
     if req.get("result").get("action")=="generic.queries":
         print("here 1")
+        print session['counter']
         return functionGenericQueries(req)
     elif req.get("result").get("action")=="process.order":
         print("here B-2")
+        print session['counter']
         return functionOrder(req)
     else:
         print("Invalid API.AI Action: ")
