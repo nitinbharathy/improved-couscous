@@ -8,6 +8,8 @@ import tinydb
 from flask import Flask
 from flask import request
 from flask import make_response
+from tinydb import TinyDB, Query
+
 # from flask import Flask, session, render_template, url_for, request, redirect #noneed
 
 
