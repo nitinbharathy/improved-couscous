@@ -7,24 +7,24 @@ import os
 from flask import Flask
 from flask import request
 from flask import make_response
-from flask import Flask, session, render_template, url_for, request, redirect
+# from flask import Flask, session, render_template, url_for, request, redirect #noneed
 
 
 # Flask app should start in global layout
 app = Flask(__name__)
 
-app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KTheythere'
+#app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KTheythere' #noneed
 
-def sumSessionCounter():
-  try:
-    session['counter'] += 1
-  except KeyError:
-    session['counter'] = 1
+# def sumSessionCounter(): #noneed
+#  try: #noneed
+#    session['counter'] += 1 #noneed
+#  except KeyError: #noneed
+#    session['counter'] = 1 #noneed
 
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    sumSessionCounter()
+#    sumSessionCounter() #noneed
     req = request.get_json(silent=True, force=True)
 
     print("Request:")
@@ -76,9 +76,9 @@ def functionOrder(req):
     burger=parameters.get("burger").get("burger")
     cust=parameters.get("customisation").get("customisation")
     
-    session['counter'] = session['counter'] + 1
+#    session['counter'] = session['counter'] + 1 #noneed
     
-    speech = "You asked for " + str(amt) + " quantity of " + burger + " with " + cust + " customisations. Would you like to make this a meal? " + str(session['counter'])
+    speech = "You asked for " + str(amt) + " quantity of " + burger + " with " + cust + " customisations. Would you like to make this a meal? " #noneed + str(session['counter'])
     
     print("Response:")
     print(speech)
